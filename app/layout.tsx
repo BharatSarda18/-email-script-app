@@ -3,8 +3,8 @@ import Toaster from './components/Toaster';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Email Script Sender',
-  description: 'Send personalized emails to multiple recipients',
+  title: 'Job Email Generator',
+  description: 'Generate personalized job emails to multiple recipients',
   icons: {
     icon: '/icon.svg',
   },
