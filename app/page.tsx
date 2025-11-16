@@ -70,7 +70,7 @@ export default function Home() {
                                 <button
                                   type="button"
                                   onClick={() => remove(index)}
-                                  className=" cursor-pointer !mt-6 !p-2 hover:bg-red-50 !rounded-md !transition-colors"
+                                  className=" cursor-pointer !mt-6 !p-2 !pr-0  md:!p-2 hover:bg-red-50 !rounded-md !transition-colors"
                                   title="Remove recipient"
                                 >
                                   <svg
@@ -163,7 +163,7 @@ export default function Home() {
                       type="button"
                       onClick={() => handleReset(resetForm)}
                       disabled={isSending || isSubmitting}
-                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-gray-700 border border-gray-200 hover:!bg-gray-300 !transition-colors ${isSending || isSubmitting
+                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-gray-700  bg-gray-200 hover:!bg-gray-300 !transition-colors ${isSending || isSubmitting
                           ? '!opacity-50 !cursor-not-allowed'
                           : ''
                         }`}
