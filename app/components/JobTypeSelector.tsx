@@ -21,11 +21,11 @@ export default function JobTypeSelector({
   const hasError = touched?.jobType && errors?.jobType;
 
   return (
-    <div className="!mb-8">
-      <h2 className={`text-xl font-semibold mb-4 ${hasError ? 'text-red-600' : 'text-gray-800'}`}>
+    <div className="!mb-6 border-gray-200 border-t !pt-3">
+      <h2 className={`text-xl font-semibold !mb-2 ${hasError ? 'text-red-600' : 'text-gray-800'}`}>
         {label} {required && <span className="text-red-500">*</span>}
       </h2>
-      <div className="flex !gap-4">
+      <div className="flex md:flex-row flex-col  !gap-4">
         {options.map((type) => (
           <label
             key={type}
