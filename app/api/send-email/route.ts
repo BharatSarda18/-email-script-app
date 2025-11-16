@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import {
-  getEmailTemplate,
-  UserDetails,
-  Recipient,
-  JobType,
-} from '@/lib/email-templates';
+import { getEmailTemplate } from '@/lib/email-templates';
+import { UserDetails, Recipient } from '@/types/email';
+import { JobType } from '@/types/FormValues';
+import { JobTypeEnum } from '@/enums/jobTypeEnum';
 
 // Validate environment variables
 const requiredEnvVars = [
@@ -80,7 +78,8 @@ export async function POST(request: NextRequest) {
 
     for (const recipient of recipients) {
       try {
-        const html = getEmailTemplate(userDetails, recipient, jobType);
+        const jobTypeEnum = jobType as JobTypeEnum;
+        const html = getEmailTemplate(userDetails, recipient, jobTypeEnum);
 
         const mailOptions = {
           from: `${yourName} <${process.env.EMAIL_FROM}>`,

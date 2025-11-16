@@ -1,24 +1,11 @@
-export interface UserDetails {
-  yourName: string;
-  currentCompany: string;
-  role: string;
-  targetCompany: string;
-  resumeLink: string;
-  linkedIn: string;
-  jobLink?: string;
-}
-
-export interface Recipient {
-  email: string;
-  name: string;
-}
-
-export type JobType = 'frontend' | 'backend' | 'fullstack';
+import { JobTypeEnum } from '@/enums/jobTypeEnum';
+import { getExperienceText, getRoleDescription } from './helpers';
+import { UserDetails, Recipient } from '@/types/email';
 
 export function getEmailTemplate(
   userDetails: UserDetails,
   recipient: Recipient,
-  jobType: JobType
+  jobType: JobTypeEnum
 ): string {
   const {
     yourName,
@@ -62,33 +49,7 @@ Warm regards,<br>
 <b>${yourName}</b><br>
 ${roleDescription}<br>
 ${linkedIn}<br>
-https://my-portfolio-git-main-bharatsarda18s-projects.vercel.app/<br>
-7627064727 | sardabharat71@gmail.com
+${process.env.PORTFOLIO_URL || ''}<br>
+${process.env.CONTACT_PHONE || ''} | ${process.env.CONTACT_EMAIL || ''}
 </p>`;
-}
-
-function getExperienceText(jobType: JobType, currentCompany: string): string {
-  switch (jobType) {
-    case 'frontend':
-      return `I bring 3 years of experience as a frontend developer, working extensively with React.js. Currently, I'm working at ${currentCompany} as a Full Stack Developer with a frontend focus, where I've built and maintained complex UI components and enterprise-grade applications.`;
-    case 'backend':
-      return `I bring 3 years of experience as a backend developer, working extensively with Node.js, databases, and API development. Currently, I'm working at ${currentCompany} as a Full Stack Developer with a backend focus, where I've designed and implemented scalable server-side solutions and robust APIs.`;
-    case 'fullstack':
-      return `I bring 3 years of experience as a full stack developer, working extensively with React.js, Node.js, and modern web technologies. Currently, I'm working at ${currentCompany} as a Full Stack Developer, where I've built end-to-end solutions, from frontend interfaces to backend services and database design.`;
-    default:
-      return `I bring 3 years of experience in software development. Currently, I'm working at ${currentCompany} as a Full Stack Developer.`;
-  }
-}
-
-function getRoleDescription(jobType: JobType): string {
-  switch (jobType) {
-    case 'frontend':
-      return 'Frontend Developer';
-    case 'backend':
-      return 'Backend Developer';
-    case 'fullstack':
-      return 'Full Stack Developer';
-    default:
-      return 'Software Developer';
-  }
 }

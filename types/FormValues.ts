@@ -1,7 +1,8 @@
-import { JobType, Recipient, UserDetails } from '@/lib/email-templates';
+import { JobTypeEnum } from '@/enums/jobTypeEnum';
+import { Recipient, UserDetails } from '@/types/email';
 
 export interface FormValues {
   recipients: Recipient[];
-  jobType: JobType;
+  jobType: JobTypeEnum;
   userDetails: UserDetails;
 }

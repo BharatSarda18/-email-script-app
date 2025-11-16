@@ -1,5 +1,5 @@
 import { Field, ErrorMessage } from 'formik';
-import { JobType } from '@/lib/email-templates';
+import { JobType } from '@/types/FormValues';
 
 interface JobTypeSelectorProps {
   name?: string;
