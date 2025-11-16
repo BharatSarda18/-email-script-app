@@ -25,7 +25,7 @@ export default function Home() {
       <div className="mx-auto h-full">
         <div className="bg-white rounded-lg shadow-xl  !p-3">
           <h1 className="text-3xl font-bold text-gray-900 !mb-6 text-center">
-            Email Script Sender
+            Job Email Generator
           </h1>
 
           <Formik
@@ -163,22 +163,20 @@ export default function Home() {
                       type="button"
                       onClick={() => handleReset(resetForm)}
                       disabled={isSending || isSubmitting}
-                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-gray-700 border border-gray-200 hover:!bg-gray-300 !transition-colors ${
-                        isSending || isSubmitting
+                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-gray-700 border border-gray-200 hover:!bg-gray-300 !transition-colors ${isSending || isSubmitting
                           ? '!opacity-50 !cursor-not-allowed'
                           : ''
-                      }`}
+                        }`}
                     >
                       Reset
                     </button>
                     <button
                       type="submit"
                       disabled={isSending || isSubmitting}
-                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-white !transition-colors ${
-                        isSending || isSubmitting
+                      className={`!px-8 !w-full md:!w-auto cursor-pointer !py-3 !rounded-md !font-semibold !text-white !transition-colors ${isSending || isSubmitting
                           ? '!bg-gray-400 !cursor-not-allowed'
                           : '!bg-blue-600 hover:!bg-blue-700'
-                      }`}
+                        }`}
                     >
                       {isSending || isSubmitting
                         ? 'Sending Emails...'
@@ -200,11 +198,10 @@ export default function Home() {
                 {sendResults.map((result, index) => (
                   <div
                     key={index}
-                    className={`!p-4 rounded-md ${
-                      result.status === 'success'
+                    className={`!p-4 rounded-md ${result.status === 'success'
                         ? 'bg-green-50 border border-green-200'
                         : 'bg-red-50 border border-red-200'
-                    }`}
+                      }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex-1 min-w-0">
@@ -218,11 +215,10 @@ export default function Home() {
                         )}
                       </div>
                       <span
-                        className={`!px-3 !py-1 !rounded-full !text-sm !font-medium !whitespace-nowrap !flex-shrink-0 ${
-                          result.status === 'success'
+                        className={`!px-3 !py-1 !rounded-full !text-sm !font-medium !whitespace-nowrap !flex-shrink-0 ${result.status === 'success'
                             ? '!bg-green-200 !text-green-800'
                             : '!bg-red-200 !text-red-800'
-                        }`}
+                          }`}
                       >
                         {result.status === 'success' ? '✓ Sent' : '✗ Failed'}
                       </span>
